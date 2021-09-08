@@ -1238,9 +1238,9 @@ Theorem update_eq :
     find x (update d x v) = Some v.
 Proof.
   intros.
-  induction d.
-  - simpl. rewrite <- eqb_id_refl. trivial.
-  - simpl. rewrite <- eqb_id_refl. trivial.
+  simpl.
+  rewrite <- eqb_id_refl.
+  trivial.
 Qed.
 
 (** [] *)
@@ -1251,9 +1251,7 @@ Theorem update_neq :
     eqb_id x y = false -> find x (update d y o) = find x d.
 Proof.
   intros.
-  induction d.
-  - simpl. rewrite H. trivial.
-  - simpl. rewrite H. trivial.
+  simpl. rewrite H. trivial.
 Qed.
 
 (** [] *)

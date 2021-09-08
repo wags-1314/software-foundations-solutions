@@ -1,9 +1,0 @@
-Set Warnings "-notation-overridden,-parsing".
-From LF Require Export Logic.
-
-Inductive ev: nat -> Prop :=
-  | ev_0: ev 0
-  | ev_SS (n: nat)(H: ev n) : ev (S (S n)).
-
-Theorem ev_double : forall n,
-  ev (double n).

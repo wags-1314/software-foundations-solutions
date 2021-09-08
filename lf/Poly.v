@@ -1276,7 +1276,7 @@ Definition three : cnat := @doit3times.
     the successor [succ n] is a function that iterates its
     argument once more than [n]. *)
 Definition succ (n : cnat) : cnat :=
-  (fun x => f x).
+  n.
 
 Example succ_1 : succ zero = one.
 Proof. (* FILL IN HERE *) Admitted.

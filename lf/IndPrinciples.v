@@ -72,7 +72,10 @@ Proof.
 Theorem plus_one_r' : forall n:nat,
   n + 1 = S n.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  apply nat_ind.
+  -  simpl. reflexivity.
+  -  intros. simpl. rewrite H. reflexivity.
+Qed.
 (** [] *)
 
 (** Coq generates induction principles for every datatype
@@ -119,7 +122,13 @@ Inductive rgb : Type :=
   | red
   | green
   | blue.
-Check rgb_ind.
+
+Check rgb_ind:
+  forall P : rgb -> Prop,
+    P red ->
+    P green ->
+    P blue ->
+    forall r: rgb, P r.
 (** [] *)
 
 (** Here's another example, this time with one of the constructors
@@ -181,8 +190,12 @@ Inductive booltree : Type :=
  | bt_leaf (b : bool)
  | bt_branch (b : bool) (t1 t2 : booltree).
 
-(* FILL IN HERE:
-   ... *)
+Check booltree_ind: 
+  forall P: booltree -> Prop,
+    P bt_empty ->
+    (forall b: bool, P (bt_leaf b)) ->
+    (forall (b: bool) (t1: booltree), P t1 -> forall (t2: booltree), P t2 -> P (bt_branch b t1 t2)) ->
+    (forall t: booltree, P t).
 
 (* Do not modify the following line: *)
 Definition manual_grade_for_booltree_ind : option (nat*string) := None.
@@ -201,8 +214,12 @@ Definition manual_grade_for_booltree_ind : option (nat*string) := None.
     principle Coq generates is that given above: *)
 
 Inductive Toy : Type :=
-  (* FILL IN HERE *)
-.
+| con1 (b: bool)
+| con2 (n: nat) (t: Toy).
+
+Print Toy_ind.
+(* FILL IN HERE *)
+
 (* Do not modify the following line: *)
 Definition manual_grade_for_toy_ind : option (nat*string) := None.
 (** [] *)
@@ -247,7 +264,14 @@ Definition manual_grade_for_toy_ind : option (nat*string) := None.
 Inductive tree (X:Type) : Type :=
   | leaf (x : X)
   | node (t1 t2 : tree X).
-Check tree_ind.
+Print tree_ind.
+
+(*
+  forall (X: Type) (P: X -> tree),
+    (forall (x: X), P (leaf x)) ->
+    (forall (t1: tree), P t1 -> forall t2: tree, P t2 -> P()
+*)
+
 (** [] *)
 
 (** **** Exercise: 1 star, standard, optional (mytype) 
@@ -436,9 +460,27 @@ Proof.
     induction, and state the theorem and proof in terms of this
     defined proposition.  *)
 
-(* FILL IN HERE
+(* FILL IN HERE *)
 
-    [] *)
+Definition Plusnm_eq_mn: nat -> nat -> Prop :=
+  fun n m => n + m = m + n.
+
+Theorem plus_comm_: forall n m, 
+  Plusnm_eq_mn n m.
+Proof.
+  intros n.
+  apply (nat_ind (Plusnm_eq_mn n)).
+  - intros. unfold Plusnm_eq_mn. simpl. rewrite <- plus_n_O. reflexivity.
+  - intros m H.
+    unfold Plusnm_eq_mn in *.
+    simpl.
+    rewrite <- H.
+    rewrite <- plus_n_Sm.
+    reflexivity.   
+Qed.
+
+
+(**    [] *)
 
 (* ################################################################# *)
 (** * Induction Principles for Propositions *)
@@ -493,8 +535,8 @@ Qed.
     induction principle Coq generates. *)
 
 Inductive le1 : nat -> nat -> Prop :=
-     | le1_n : forall n, le1 n n
-     | le1_S : forall n m, (le1 n m) -> (le1 n (S m)).
+  | le1_n : forall n, le1 n n
+  | le1_S : forall n m, (le1 n m) -> (le1 n (S m)).
 
 Notation "m <=1 n" := (le1 m n) (at level 70).
 
@@ -815,18 +857,19 @@ Abort.
     non-standard induction principle that goes "by twos":
  *)
 
- Definition nat_ind2 :
-    forall (P : nat -> Prop),
-    P 0 ->
-    P 1 ->
-    (forall n : nat, P n -> P (S(S n))) ->
-    forall n : nat , P n :=
-       fun P => fun P0 => fun P1 => fun PSS =>
-          fix f (n:nat) := match n with
-                             0 => P0
-                           | 1 => P1
-                           | S (S n') => PSS n' (f n')
-                          end.
+Definition nat_ind2 :
+  forall (P : nat -> Prop),
+  P 0 ->
+  P 1 ->
+  (forall n : nat, P n -> P (S(S n))) ->
+  forall n : nat , P n :=
+    fun P P0 P1 PSS =>
+      fix f (n:nat) := 
+        match n with
+        | 0 => P0
+        | 1 => P1
+        | S (S n') => PSS n' (f n')
+end.
 
  (** Once you get the hang of it, it is entirely straightforward to
      give an explicit proof term for induction principles like this.

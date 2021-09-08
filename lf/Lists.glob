@@ -1,4 +1,4 @@
-DIGEST 678e171943a7f2463dc4f891070cd1dc
+DIGEST 7e057f2172521d70d8b2619fd5a06418
 FLF.Lists
 R69:77 LF.Induction <> <> lib
 mod 87:93 <> NatList
@@ -1286,49 +1286,46 @@ R38607:38607 LF.Lists <> d:164 var
 R38597:38597 LF.Lists <> x:165 var
 R38616:38619 LF.Lists NatList Some constr
 R38621:38621 LF.Lists <> v:166 var
-R38678:38688 LF.Lists <> eqb_id_refl thm
-R38678:38688 LF.Lists <> eqb_id_refl thm
-R38678:38688 LF.Lists <> eqb_id_refl thm
-R38722:38732 LF.Lists <> eqb_id_refl thm
-R38722:38732 LF.Lists <> eqb_id_refl thm
-R38722:38732 LF.Lists <> eqb_id_refl thm
-prf 38822:38831 PartialMap update_neq
-R38849:38859 LF.Lists PartialMap partial_map ind
-binder 38845:38845 <> d:167
-R38869:38870 LF.Lists <> id ind
-binder 38863:38863 <> x:168
-binder 38865:38865 <> y:169
-R38877:38879 Coq.Init.Datatypes <> nat ind
-binder 38874:38874 <> o:170
-R38905:38908 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R38930:38932 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R38909:38912 LF.Lists PartialMap find def
-R38917:38922 LF.Lists PartialMap update def
-R38928:38928 LF.Lists <> o:170 var
-R38926:38926 LF.Lists <> y:169 var
-R38924:38924 LF.Lists <> d:167 var
-R38914:38914 LF.Lists <> x:168 var
-R38933:38936 LF.Lists PartialMap find def
-R38940:38940 LF.Lists <> d:167 var
-R38938:38938 LF.Lists <> x:168 var
-R38897:38899 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R38887:38892 LF.Lists <> eqb_id def
-R38896:38896 LF.Lists <> y:169 var
-R38894:38894 LF.Lists <> x:168 var
-R38900:38904 LF.Basics <> false constr
-R39057:39066 LF.Lists PartialMap <> mod
-ind 39197:39199 <> baz
-constr 39215:39218 <> Baz1
-constr 39234:39237 <> Baz2
-R39225:39227 LF.Lists <> baz:171 ind
-binder 39221:39221 <> x:173
-R39244:39246 LF.Lists <> baz:171 ind
-binder 39240:39240 <> y:174
-R39254:39257 LF.Basics <> bool ind
-binder 39250:39250 <> b:175
-def 39425:39453 <> manual_grade_for_baz_num_elts
-R39457:39462 Coq.Init.Datatypes <> option ind
-R39468:39468 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R39465:39467 Coq.Init.Datatypes <> nat ind
-R39469:39474 Coq.Strings.String <> string ind
-R39480:39483 Coq.Init.Datatypes <> None constr
+R38663:38673 LF.Lists <> eqb_id_refl thm
+R38663:38673 LF.Lists <> eqb_id_refl thm
+R38663:38673 LF.Lists <> eqb_id_refl thm
+prf 38765:38774 PartialMap update_neq
+R38792:38802 LF.Lists PartialMap partial_map ind
+binder 38788:38788 <> d:167
+R38812:38813 LF.Lists <> id ind
+binder 38806:38806 <> x:168
+binder 38808:38808 <> y:169
+R38820:38822 Coq.Init.Datatypes <> nat ind
+binder 38817:38817 <> o:170
+R38848:38851 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R38873:38875 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R38852:38855 LF.Lists PartialMap find def
+R38860:38865 LF.Lists PartialMap update def
+R38871:38871 LF.Lists <> o:170 var
+R38869:38869 LF.Lists <> y:169 var
+R38867:38867 LF.Lists <> d:167 var
+R38857:38857 LF.Lists <> x:168 var
+R38876:38879 LF.Lists PartialMap find def
+R38883:38883 LF.Lists <> d:167 var
+R38881:38881 LF.Lists <> x:168 var
+R38840:38842 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R38830:38835 LF.Lists <> eqb_id def
+R38839:38839 LF.Lists <> y:169 var
+R38837:38837 LF.Lists <> x:168 var
+R38843:38847 LF.Basics <> false constr
+R38952:38961 LF.Lists PartialMap <> mod
+ind 39092:39094 <> baz
+constr 39110:39113 <> Baz1
+constr 39129:39132 <> Baz2
+R39120:39122 LF.Lists <> baz:171 ind
+binder 39116:39116 <> x:173
+R39139:39141 LF.Lists <> baz:171 ind
+binder 39135:39135 <> y:174
+R39149:39152 LF.Basics <> bool ind
+binder 39145:39145 <> b:175
+def 39320:39348 <> manual_grade_for_baz_num_elts
+R39352:39357 Coq.Init.Datatypes <> option ind
+R39363:39363 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R39360:39362 Coq.Init.Datatypes <> nat ind
+R39364:39369 Coq.Strings.String <> string ind
+R39375:39378 Coq.Init.Datatypes <> None constr
